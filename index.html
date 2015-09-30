@@ -5,31 +5,37 @@
         <link rel="stylesheet" href="style.css">
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     </head>
-    <body>
+    <body class="daytime">
         <div id="orb" class="sun">
 
         </div>
         
-                <center><button class="btn" data-text-swap="show">LET THERE BE LIGHT!!</button></center>
+                <center><button class="btn">A WHOLE DAYS LIGHT</button></center>
         
         <script>
             $(document).ready(function(){
                 $("button").on("click", function(){
-                    if($("body").hasClass("black")){
-                        $("body").removeClass("black");
-                        $("#orb").removeClass("moon");
-                        $("#orb").addClass("sun");
-                        $("body").removeClass("nighttime");
-                        $("body").addClass("daytime");
+                    if($("body").hasClass("daytime")){
+                        $("body").removeClass("daytime");
+                        $("#orb").removeClass("sun");
+                        $("#orb").addClass("duskstar");
+                        $("body").addClass("dusktime");
+                        
 
                         
                     }
-                    else{
-                        $("body").addClass("black");
-                        $("#orb").removeClass("sun");
-                        $("#orb").addClass("moon");
-                        $("body").removeClass("daytime");
+                    else if ($("body").hasClass("dusktime")){
                         $("body").addClass("nighttime");
+                        $("#orb").removeClass("duskstar");
+                        $("#orb").addClass("moon");
+                        $("body").removeClass("dusktime");
+                       }
+                    
+                    else{
+                        $("body").addClass("daytime");
+                        $("body").removeClass("nighttime")
+                        $("#orb").addClass("sun");
+                        $("#orb").removeClass("moon");
                     }
                 });
             
